@@ -14,7 +14,7 @@ This repository recovers the independently reviewed **1.0.0-rc3** package from a
 - [Original reviewed ZIP](archives/read-and-decide-public-1.0.0-rc3.zip)
 - [Original share payload](reviewed/rc3/share-preview.json)
 
-The [Grok Bot template](https://x.ai/bot/ndCgEghC1Blcy-eABmk7T) was published and its public page verified on October 24, 2026. Its current account ownership and availability after the account-transfer issue have not been reverified. This repository can be used to recover the reviewed source independently of that account.
+**[Add Read & Decide to Grok Bot](https://x.ai/bot/p23Ddk9YaomESF7ujUDw0)** — a new public template, published and verified on October 25, 2026 from the unchanged rc3 payload. Its Context contains the store description and two public skills; its only integration is X. No personal memory or routines are included. See [publication evidence and limits](PUBLICATION.md). The older template link is superseded because its original bot could no longer stage updates after the account transfer.
 
 ## Verify and try the helper
 

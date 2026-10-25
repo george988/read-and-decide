@@ -19,3 +19,7 @@ The preserved evidence document contains intermediate statements such as “pend
 The share tool returned a staging confirmation rather than echoing the stored payload. The local payload, saved skill hashes, and actual template-card inspection were checked together; a full stored-payload export and a fresh-account import were not verified.
 
 Recovery additions are limited to repository documentation, the exact helper extraction, an ignore file, and a verification script. No scoring, routing, skill, fixture, or original test behavior was changed. Publication of this repository does not change any bot, account connection, private state, or schedule.
+
+## New template publication
+
+On October 25, 2026, a new template was published and its public page verified at <https://x.ai/bot/p23Ddk9YaomESF7ujUDw0>. This is the current link. The original archived tool outputs prove staging only; later publication notes and the old public page are separate evidence. The original bot could not stage updates to the older template. See [PUBLICATION.md](PUBLICATION.md) for the new card, source checks, and verification limits.
