@@ -1,0 +1,84 @@
+{
+ "note": "Synthetic bookmark pages for the coverage limitation. Keys are invented. Anchors a1..a4 were the most recent covered bookmarks, a1 newest.",
+ "recent": [
+  "x:1000000000000000101",
+  "x:1000000000000000102",
+  "x:1000000000000000103",
+  "x:1000000000000000104"
+ ],
+ "cases": [
+  {
+   "name": "normal: two new saves above confirmed anchors",
+   "page": [
+    "x:1000000000000000201",
+    "x:1000000000000000202",
+    "x:1000000000000000101",
+    "x:1000000000000000102"
+   ],
+   "has_next": true,
+   "expect_new": [
+    "x:1000000000000000201",
+    "x:1000000000000000202"
+   ],
+   "expect_boundary": 2
+  },
+  {
+   "name": "single re-bookmark: old anchor a3 moved to top above a new save (detected)",
+   "page": [
+    "x:1000000000000000103",
+    "x:1000000000000000201",
+    "x:1000000000000000101",
+    "x:1000000000000000102"
+   ],
+   "has_next": true,
+   "expect_new": [
+    "x:1000000000000000201"
+   ],
+   "expect_boundary": 2
+  },
+  {
+   "name": "re-bookmark of a terminal non-anchor post above a new save (detected)",
+   "terminal": [
+    "x:1000000000000000050"
+   ],
+   "page": [
+    "x:1000000000000000050",
+    "x:1000000000000000201",
+    "x:1000000000000000101",
+    "x:1000000000000000102"
+   ],
+   "has_next": true,
+   "expect_new": [
+    "x:1000000000000000201"
+   ],
+   "expect_boundary": 2
+  },
+  {
+   "name": "KNOWN LIMITATION: new save N1, then a2 and a1 re-bookmarked (land in recorded order) -> N1 masked",
+   "page": [
+    "x:1000000000000000101",
+    "x:1000000000000000102",
+    "x:1000000000000000201",
+    "x:1000000000000000103",
+    "x:1000000000000000104"
+   ],
+   "has_next": true,
+   "expect_new": [],
+   "expect_boundary": 0,
+   "masked": [
+    "x:1000000000000000201"
+   ]
+  },
+  {
+   "name": "no confirmed anchor on page: gap, triage nothing",
+   "page": [
+    "x:1000000000000000201",
+    "x:1000000000000000202",
+    "x:1000000000000000203"
+   ],
+   "has_next": true,
+   "expect_new": [],
+   "expect_boundary": null
+  }
+ ]
+}

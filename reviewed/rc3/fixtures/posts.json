@@ -1,0 +1,207 @@
+{
+ "note": "Synthetic fixtures only. Invented IDs and authors; no real posts.",
+ "items": [
+  {
+   "id": "1000000000000000001",
+   "url": "https://x.com/example_author/status/1000000000000000001",
+   "author": "example_author",
+   "title": "Synthetic: open-source CLI that batch-renames files, with docs and repo",
+   "input": {
+    "dims": {
+     "R": 5,
+     "U": 5,
+     "A": 4,
+     "N": 3
+    },
+    "evidence": "Verified",
+    "premises": [
+     {
+      "claim": "CLI works as documented",
+      "essential": true,
+      "supported": true
+     }
+    ],
+    "risk": "Low",
+    "effort_ok": true,
+    "experiment": true
+   },
+   "candidates": [
+    {
+     "intent": "experiment",
+     "target": "Rename 20 test files"
+    },
+    {
+     "intent": "extract",
+     "target": "Flag cheatsheet"
+    }
+   ],
+   "expect": {
+    "triage": "assessed",
+    "verdict": "Try",
+    "research_lead": false,
+    "score": 90,
+    "ids": [
+     "RD-1000000000000000001-experiment-rename-20-test-files",
+     "RD-1000000000000000001-extract-flag-cheatsheet"
+    ]
+   }
+  },
+  {
+   "id": "1000000000000000002",
+   "url": "https://x.com/example_writer/status/1000000000000000002",
+   "author": "example_writer",
+   "title": "Synthetic: essay on writing weekly reviews",
+   "input": {
+    "dims": {
+     "R": 3,
+     "U": 4,
+     "A": 2,
+     "N": 2
+    },
+    "evidence": "Opinion",
+    "premises": [],
+    "risk": "Low",
+    "effort_ok": true,
+    "experiment": false
+   },
+   "candidates": [
+    {
+     "intent": "save",
+     "target": "Weekly review template"
+    }
+   ],
+   "expect": {
+    "triage": "assessed",
+    "verdict": "Keep",
+    "research_lead": false,
+    "score": 59,
+    "ids": [
+     "RD-1000000000000000002-save-weekly-review-template"
+    ]
+   }
+  },
+  {
+   "id": "1000000000000000003",
+   "url": "https://x.com/example_author/status/1000000000000000003",
+   "author": "example_author",
+   "title": "Synthetic: new hosted API claims free tier for 1M calls",
+   "input": {
+    "dims": {
+     "R": 4,
+     "U": 4,
+     "A": 3,
+     "N": 3
+    },
+    "evidence": "Partly supported",
+    "premises": [
+     {
+      "claim": "free tier covers 1M calls",
+      "essential": true,
+      "supported": false
+     }
+    ],
+    "risk": "Low",
+    "effort_ok": true,
+    "experiment": true
+   },
+   "candidates": [
+    {
+     "intent": "verify",
+     "target": "Pricing page"
+    }
+   ],
+   "expect": {
+    "triage": "assessed",
+    "verdict": "Keep",
+    "research_lead": true,
+    "score": 73,
+    "ids": [
+     "RD-1000000000000000003-verify-pricing-page"
+    ]
+   }
+  },
+  {
+   "id": "1000000000000000004",
+   "url": "https://x.com/example_promo/status/1000000000000000004",
+   "author": "example_promo",
+   "title": "Synthetic: generic engagement-bait list",
+   "input": {
+    "dims": {
+     "R": 1,
+     "U": 1,
+     "A": 1,
+     "N": 1
+    },
+    "evidence": "Unverified",
+    "premises": [],
+    "risk": "Low",
+    "effort_ok": true
+   },
+   "candidates": [],
+   "expect": {
+    "triage": "assessed",
+    "verdict": "Skip",
+    "research_lead": false,
+    "score": 20,
+    "ids": []
+   }
+  },
+  {
+   "id": "1000000000000000005",
+   "url": "https://x.com/example_author/status/1000000000000000005",
+   "author": "example_author",
+   "title": "Synthetic: claim already debunked by its own source",
+   "input": {
+    "dims": {
+     "R": 4,
+     "U": 3,
+     "A": 3,
+     "N": 2
+    },
+    "evidence": "Contradicted",
+    "premises": [],
+    "risk": "Low",
+    "effort_ok": true
+   },
+   "candidates": [],
+   "expect": {
+    "triage": "assessed",
+    "verdict": "Skip",
+    "research_lead": false,
+    "score": 64,
+    "ids": []
+   }
+  },
+  {
+   "id": "1000000000000000006",
+   "url": "https://x.com/example_author/status/1000000000000000006",
+   "author": "example_author",
+   "title": "Synthetic: tool demo where actionability can't be judged yet",
+   "input": {
+    "dims": {
+     "R": 4,
+     "U": 3,
+     "A": "?",
+     "N": 3
+    },
+    "evidence": "Unverified",
+    "premises": []
+   },
+   "candidates": [
+    {
+     "intent": "retry-access",
+     "target": "Paste full thread"
+    }
+   ],
+   "expect": {
+    "triage": "needs_review",
+    "verdict": null,
+    "research_lead": false,
+    "score": null,
+    "ids": [
+     "RD-1000000000000000006-retry-access-paste-full-thread"
+    ]
+   }
+  }
+ ]
+}

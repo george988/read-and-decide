@@ -1,0 +1,66 @@
+{
+ "no_integrations": {
+  "state_dir": "__BASE__",
+  "owner_name": "Example Owner",
+  "confirmed_goals": [
+   "ship a side project",
+   "learn automation"
+  ],
+  "categories": [
+   "Tools & workflows",
+   "Other"
+  ],
+  "notion": null,
+  "kindle": null,
+  "sweep": {
+   "enabled": false
+  },
+  "setup_complete": true
+ },
+ "no_goals": {
+  "state_dir": "__BASE__",
+  "owner_name": "Example Owner",
+  "confirmed_goals": [],
+  "categories": [
+   "Other"
+  ],
+  "notion": null,
+  "kindle": null,
+  "sweep": {
+   "enabled": false
+  },
+  "setup_complete": false
+ },
+ "empty": {},
+ "all_opted_in": {
+  "state_dir": "__BASE__",
+  "owner_name": "Example Owner",
+  "confirmed_goals": [
+   "ship a side project",
+   "learn automation"
+  ],
+  "categories": [
+   "Other"
+  ],
+  "notion": {
+   "enabled": true,
+   "database": "Example reading list",
+   "fields": {
+    "Title": "Name",
+    "Link": "URL",
+    "Verdict": "Verdict"
+   }
+  },
+  "kindle": {
+   "enabled": true,
+   "method": "example delivery bot",
+   "delivery_bot": "example-delivery-bot",
+   "ledger": null
+  },
+  "sweep": {
+   "enabled": true,
+   "time": "08:00"
+  },
+  "setup_complete": true
+ }
+}

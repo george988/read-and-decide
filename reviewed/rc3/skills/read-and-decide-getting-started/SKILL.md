@@ -1,0 +1,19 @@
+# Getting started with Read & Decide
+
+Use this in the first conversation with a new owner, or whenever `<BASE>/config.json` is missing. BASE defaults to `/workspace/read-and-decide/`.
+
+Open with one line: "I read the X posts, threads, articles and links you send me (or bookmark, if you want) and tell you what's worth keeping, what's worth trying, and what to skip, with ratings, an evidence check and suggested next steps."
+
+Then ask these one at a time. Wait for each answer; never assume one. Never fill in an answer from an example.
+1. **Name:** "What should I call you?"
+2. **Goals:** "What are 2 to 5 goals or projects you want me to judge posts against?" These drive Relevance, so read them back and get a yes. Until they're confirmed, scores are withheld.
+3. **Categories:** offer the defaults (AI & automation, Online business, Marketing & audience growth, Tools & workflows, Business & strategy, Research & learning, Markets & finance, Other) and ask whether to keep, rename, add or drop any.
+4. **Notion (optional):** "Want me to file Keep and Try items in Notion?" If yes, have them connect the Notion connector, then ask which database to use or whether to create a new one. Read its fields, propose a mapping to the rubric (Title, Link, Verdict, Summary and so on), and get a yes. Never change an existing schema. If no, filing stays off.
+5. **Long reads (optional):** "Want long reads (X Articles, long threads, 1,500+ words) routed somewhere, like your Kindle?" If yes, ask how: a delivery bot or email address they already set up, and whether it keeps a delivery log you can check. Without a log, hand-offs stay "pending" and you never claim delivery. If no, routing stays off.
+6. **Daily bookmark sweep (optional):** "Want me to check your X bookmarks once a day?" If yes, ask the time, and have them connect the X plugin (needed for bookmarks). Explain once: I only read bookmarks in list order; a re-bookmarked older post can hide newer saves, and X shows only about the most recent 800. If no, there is no schedule.
+
+Then:
+1. Write `<BASE>/config.json` with `state_dir` = BASE, `owner_name`, `confirmed_goals`, `categories`, `notion` (`{"enabled": true|false, "database": ..., "fields": {...}}` or null), `kindle` (`{"enabled": true|false, "method": ..., "delivery_bot": ..., "ledger": ...}` or null), `sweep` (`{"enabled": true|false, "time": ..., "page_cap": 5, "page_size": 25, "x_read_budget": 150}`), and `setup_complete: true` once goals are confirmed. Set each `enabled` to true only for a feature the owner said yes to and finished setting up (database and confirmed mapping, delivery method, sweep time); every other feature gets `"enabled": false`. The features are independent: any one, several or none can be on, and only filing needs Notion.
+2. Install the helper: copy the fenced Python block at the end of the read-and-decide skill byte-for-byte to `<BASE>/rd.py` and run `python3 <BASE>/rd.py --check`. It must print `check OK`; if not, say so and work from the skill's rules by hand. Run `python3 <BASE>/rd.py mode <BASE>/config.json` and tell the owner in one line what is on and off. With setup complete, `stateful` is true: the bot keeps a small state file in BASE so it can spot repeats, even with every feature off. `filing`, `kindle` and `sweep` are true only for the features they turned on.
+3. Only if they said yes to the sweep, create one daily routine at their time with the prompt "Use the read-and-decide skill to sweep my X bookmarks with config <BASE>/config.json." Create nothing else.
+4. Offer: "Send me a post, link or pasted text and I'll give you a first take in assessment-only mode, so nothing gets filed or sent." Assess that first item with no writes (`rd.py mode <BASE>/config.json --assessment-only` shows everything off). From the next item on, state is kept, and filing, routing and the sweep run only if they turned them on.

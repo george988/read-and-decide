@@ -1,0 +1,55 @@
+{
+ "note": "Synthetic URL forms for key normalization",
+ "cases": [
+  [
+   "https://x.com/example_author/status/1000000000000000001",
+   "x:1000000000000000001"
+  ],
+  [
+   "https://twitter.com/example_author/status/1000000000000000001?s=20&t=abcDEF",
+   "x:1000000000000000001"
+  ],
+  [
+   "mobile.twitter.com/example_author/status/1000000000000000001/photo/1",
+   "x:1000000000000000001"
+  ],
+  [
+   "https://x.com/i/status/1000000000000000001",
+   "x:1000000000000000001"
+  ],
+  [
+   "https://x.com/i/web/status/1000000000000000001#reply",
+   "x:1000000000000000001"
+  ],
+  [
+   "http://www.twitter.com/example_author/statuses/1000000000000000001/video/1/",
+   "x:1000000000000000001"
+  ],
+  [
+   "https://x.com/example_author/status/1000000000000000001/analytics",
+   "x:1000000000000000001"
+  ],
+  [
+   "http://Blog.Example.com/post/slug/?utm_source=x&utm_medium=social&ref=home#top",
+   "https://blog.example.com/post/slug?ref=home"
+  ],
+  [
+   "https://www.example.org/a?fbclid=1&gclid=2&si=3&id=7",
+   "https://www.example.org/a?id=7"
+  ],
+  [
+   "example.net/article",
+   "https://example.net/article"
+  ]
+ ],
+ "text_cases": [
+  [
+   "  Paste of a THREAD\n\nabout   tooling ",
+   "paste of a thread about tooling"
+  ],
+  [
+   "paste of a thread about tooling",
+   "paste of a thread about tooling"
+  ]
+ ]
+}

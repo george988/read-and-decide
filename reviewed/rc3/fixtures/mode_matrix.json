@@ -1,0 +1,442 @@
+{
+ "note": "Synthetic mode() matrix. config null = no config file. Write flags: stateful, filing, kindle, kindle_ledger, sweep.",
+ "cases": [
+  {
+   "name": "none: setup complete, no features",
+   "config": {
+    "state_dir": "__BASE__",
+    "owner_name": "Example Owner",
+    "confirmed_goals": [
+     "ship a side project",
+     "learn automation"
+    ],
+    "categories": [
+     "Other"
+    ],
+    "setup_complete": true,
+    "notion": {
+     "enabled": false
+    },
+    "kindle": {
+     "enabled": false
+    },
+    "sweep": {
+     "enabled": false
+    }
+   },
+   "assessment_only_flag": false,
+   "expect": {
+    "assessment_only": false,
+    "stateful": true,
+    "filing": false,
+    "kindle": false,
+    "kindle_ledger": false,
+    "sweep": false,
+    "explicit_assessment_only": false
+   }
+  },
+  {
+   "name": "notion-only",
+   "config": {
+    "state_dir": "__BASE__",
+    "owner_name": "Example Owner",
+    "confirmed_goals": [
+     "ship a side project",
+     "learn automation"
+    ],
+    "categories": [
+     "Other"
+    ],
+    "setup_complete": true,
+    "notion": {
+     "enabled": true,
+     "database": "Example reading list",
+     "fields": {
+      "Title": "Name",
+      "Link": "URL",
+      "Verdict": "Verdict"
+     }
+    },
+    "kindle": {
+     "enabled": false
+    },
+    "sweep": {
+     "enabled": false
+    }
+   },
+   "assessment_only_flag": false,
+   "expect": {
+    "assessment_only": false,
+    "stateful": true,
+    "filing": true,
+    "kindle": false,
+    "kindle_ledger": false,
+    "sweep": false,
+    "explicit_assessment_only": false
+   }
+  },
+  {
+   "name": "notion enabled but no field mapping",
+   "config": {
+    "state_dir": "__BASE__",
+    "owner_name": "Example Owner",
+    "confirmed_goals": [
+     "ship a side project",
+     "learn automation"
+    ],
+    "categories": [
+     "Other"
+    ],
+    "setup_complete": true,
+    "notion": {
+     "enabled": true,
+     "database": "Example reading list",
+     "fields": {}
+    },
+    "kindle": {
+     "enabled": false
+    },
+    "sweep": {
+     "enabled": false
+    }
+   },
+   "assessment_only_flag": false,
+   "expect": {
+    "assessment_only": false,
+    "stateful": true,
+    "filing": false,
+    "kindle": false,
+    "kindle_ledger": false,
+    "sweep": false,
+    "explicit_assessment_only": false
+   }
+  },
+  {
+   "name": "kindle-only (no ledger)",
+   "config": {
+    "state_dir": "__BASE__",
+    "owner_name": "Example Owner",
+    "confirmed_goals": [
+     "ship a side project",
+     "learn automation"
+    ],
+    "categories": [
+     "Other"
+    ],
+    "setup_complete": true,
+    "notion": {
+     "enabled": false
+    },
+    "kindle": {
+     "enabled": true,
+     "method": "example delivery bot",
+     "delivery_bot": "example-delivery-bot",
+     "ledger": null
+    },
+    "sweep": {
+     "enabled": false
+    }
+   },
+   "assessment_only_flag": false,
+   "expect": {
+    "assessment_only": false,
+    "stateful": true,
+    "filing": false,
+    "kindle": true,
+    "kindle_ledger": false,
+    "sweep": false,
+    "explicit_assessment_only": false
+   }
+  },
+  {
+   "name": "kindle-only with ledger",
+   "config": {
+    "state_dir": "__BASE__",
+    "owner_name": "Example Owner",
+    "confirmed_goals": [
+     "ship a side project",
+     "learn automation"
+    ],
+    "categories": [
+     "Other"
+    ],
+    "setup_complete": true,
+    "notion": {
+     "enabled": false
+    },
+    "kindle": {
+     "enabled": true,
+     "method": "example delivery bot",
+     "delivery_bot": "example-delivery-bot",
+     "ledger": "example delivery log"
+    },
+    "sweep": {
+     "enabled": false
+    }
+   },
+   "assessment_only_flag": false,
+   "expect": {
+    "assessment_only": false,
+    "stateful": true,
+    "filing": false,
+    "kindle": true,
+    "kindle_ledger": true,
+    "sweep": false,
+    "explicit_assessment_only": false
+   }
+  },
+  {
+   "name": "sweep-only",
+   "config": {
+    "state_dir": "__BASE__",
+    "owner_name": "Example Owner",
+    "confirmed_goals": [
+     "ship a side project",
+     "learn automation"
+    ],
+    "categories": [
+     "Other"
+    ],
+    "setup_complete": true,
+    "notion": {
+     "enabled": false
+    },
+    "kindle": {
+     "enabled": false
+    },
+    "sweep": {
+     "enabled": true,
+     "time": "08:00",
+     "page_cap": 5,
+     "page_size": 25,
+     "x_read_budget": 150
+    }
+   },
+   "assessment_only_flag": false,
+   "expect": {
+    "assessment_only": false,
+    "stateful": true,
+    "filing": false,
+    "kindle": false,
+    "kindle_ledger": false,
+    "sweep": true,
+    "explicit_assessment_only": false
+   }
+  },
+  {
+   "name": "all features (positive control)",
+   "config": {
+    "state_dir": "__BASE__",
+    "owner_name": "Example Owner",
+    "confirmed_goals": [
+     "ship a side project",
+     "learn automation"
+    ],
+    "categories": [
+     "Other"
+    ],
+    "setup_complete": true,
+    "notion": {
+     "enabled": true,
+     "database": "Example reading list",
+     "fields": {
+      "Title": "Name",
+      "Link": "URL",
+      "Verdict": "Verdict"
+     }
+    },
+    "kindle": {
+     "enabled": true,
+     "method": "example delivery bot",
+     "delivery_bot": "example-delivery-bot",
+     "ledger": "example delivery log"
+    },
+    "sweep": {
+     "enabled": true,
+     "time": "08:00",
+     "page_cap": 5,
+     "page_size": 25,
+     "x_read_budget": 150
+    }
+   },
+   "assessment_only_flag": false,
+   "expect": {
+    "assessment_only": false,
+    "stateful": true,
+    "filing": true,
+    "kindle": true,
+    "kindle_ledger": true,
+    "sweep": true,
+    "explicit_assessment_only": false
+   }
+  },
+  {
+   "name": "incomplete: setup_complete false, all features configured",
+   "config": {
+    "state_dir": "__BASE__",
+    "owner_name": "Example Owner",
+    "confirmed_goals": [
+     "ship a side project",
+     "learn automation"
+    ],
+    "categories": [
+     "Other"
+    ],
+    "setup_complete": false,
+    "notion": {
+     "enabled": true,
+     "database": "Example reading list",
+     "fields": {
+      "Title": "Name",
+      "Link": "URL",
+      "Verdict": "Verdict"
+     }
+    },
+    "kindle": {
+     "enabled": true,
+     "method": "example delivery bot",
+     "delivery_bot": "example-delivery-bot",
+     "ledger": "example delivery log"
+    },
+    "sweep": {
+     "enabled": true,
+     "time": "08:00",
+     "page_cap": 5,
+     "page_size": 25,
+     "x_read_budget": 150
+    }
+   },
+   "assessment_only_flag": false,
+   "expect": {
+    "assessment_only": true,
+    "stateful": false,
+    "filing": false,
+    "kindle": false,
+    "kindle_ledger": false,
+    "sweep": false,
+    "explicit_assessment_only": false
+   }
+  },
+  {
+   "name": "incomplete: no state_dir, all features configured",
+   "config": {
+    "owner_name": "Example Owner",
+    "confirmed_goals": [
+     "ship a side project",
+     "learn automation"
+    ],
+    "categories": [
+     "Other"
+    ],
+    "setup_complete": true,
+    "notion": {
+     "enabled": true,
+     "database": "Example reading list",
+     "fields": {
+      "Title": "Name",
+      "Link": "URL",
+      "Verdict": "Verdict"
+     }
+    },
+    "kindle": {
+     "enabled": true,
+     "method": "example delivery bot",
+     "delivery_bot": "example-delivery-bot",
+     "ledger": "example delivery log"
+    },
+    "sweep": {
+     "enabled": true,
+     "time": "08:00",
+     "page_cap": 5,
+     "page_size": 25,
+     "x_read_budget": 150
+    }
+   },
+   "assessment_only_flag": false,
+   "expect": {
+    "assessment_only": true,
+    "stateful": false,
+    "filing": false,
+    "kindle": false,
+    "kindle_ledger": false,
+    "sweep": false,
+    "explicit_assessment_only": false
+   }
+  },
+  {
+   "name": "incomplete: no config file",
+   "config": null,
+   "assessment_only_flag": false,
+   "expect": {
+    "assessment_only": true,
+    "stateful": false,
+    "filing": false,
+    "kindle": false,
+    "kindle_ledger": false,
+    "sweep": false,
+    "explicit_assessment_only": false
+   }
+  },
+  {
+   "name": "explicit assessment-only: all features configured",
+   "config": {
+    "state_dir": "__BASE__",
+    "owner_name": "Example Owner",
+    "confirmed_goals": [
+     "ship a side project",
+     "learn automation"
+    ],
+    "categories": [
+     "Other"
+    ],
+    "setup_complete": true,
+    "notion": {
+     "enabled": true,
+     "database": "Example reading list",
+     "fields": {
+      "Title": "Name",
+      "Link": "URL",
+      "Verdict": "Verdict"
+     }
+    },
+    "kindle": {
+     "enabled": true,
+     "method": "example delivery bot",
+     "delivery_bot": "example-delivery-bot",
+     "ledger": "example delivery log"
+    },
+    "sweep": {
+     "enabled": true,
+     "time": "08:00",
+     "page_cap": 5,
+     "page_size": 25,
+     "x_read_budget": 150
+    }
+   },
+   "assessment_only_flag": true,
+   "expect": {
+    "assessment_only": true,
+    "stateful": false,
+    "filing": false,
+    "kindle": false,
+    "kindle_ledger": false,
+    "sweep": false,
+    "explicit_assessment_only": true
+   }
+  },
+  {
+   "name": "explicit assessment-only: no config file",
+   "config": null,
+   "assessment_only_flag": true,
+   "expect": {
+    "assessment_only": true,
+    "stateful": false,
+    "filing": false,
+    "kindle": false,
+    "kindle_ledger": false,
+    "sweep": false,
+    "explicit_assessment_only": true
+   }
+  }
+ ]
+}

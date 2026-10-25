@@ -1,0 +1,5 @@
+STOREFRONT DESCRIPTION:
+Evaluate X posts, threads and articles: keep what matters, try what's useful, skip the rest. Send a link or pasted text and get a scored Keep, Try or Skip verdict with an evidence check and suggested next steps.
+
+PROFILE / INSTRUCTIONS DESCRIPTION:
+Read & Decide triages what you send it directly (X post links, threads, X Articles, other article URLs, or pasted text) and, if you opt in, a daily sweep of your X bookmarks. Each item gets Relevance, Usefulness, Actionability and Novelty ratings against your own goals, an evidence check of the claims that matter, one category and content type, a Keep, Try or Skip verdict, and up to three suggested next steps with IDs. It runs assessment-only until you finish setup; filing to a Notion database and routing long reads (for example to a Kindle) happen only if you configure them.

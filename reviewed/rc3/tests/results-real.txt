@@ -1,0 +1,65 @@
+PASS a1 exactly one python block in shipped skill :: 1 blocks
+PASS a2 fresh BASE is empty before install
+PASS a3 rd.py --check from shipped text :: rd.py 1.0.1 check OK
+PASS a4 helper size bytes :: 16014
+PASS b 1000000000000000001 -> Try :: score=90 verdict=Try ids=['RD-1000000000000000001-experiment-rename-20-test-files', 'RD-1000000000000000001-extract-flag-cheatsheet']
+PASS b 1000000000000000002 -> Keep :: score=59 verdict=Keep ids=['RD-1000000000000000002-save-weekly-review-template']
+PASS b 1000000000000000003 -> Keep (research lead) :: score=73 verdict=Keep ids=['RD-1000000000000000003-verify-pricing-page']
+PASS b 1000000000000000004 -> Skip :: score=20 verdict=Skip ids=[]
+PASS b 1000000000000000005 -> Skip :: score=64 verdict=Skip ids=[]
+PASS b 1000000000000000006 -> Needs review :: score=None verdict=None ids=['RD-1000000000000000006-retry-access-paste-full-thread']
+PASS b action status carries to identical ID; unselected Suggested -> Dropped :: [{"intent": "verify", "target": "Pricing page", "rank": 1, "recommended": true, "id": "RD-1000000000000000001-verify-pricing-page", "status": "Done"}, {"id": "R
+PASS b content type compound rejected
+PASS b half point withholds score
+PASS b override cannot force Try
+PASS c URL normalization (10 forms) :: []
+PASS c pasted text -> text:<12 hex>, whitespace/case-insensitive :: ['text:85d1ece1111a', 'text:85d1ece1111a']
+PASS c text key action ID prefix RD-t :: [{"intent": "verify", "target": "Source", "rank": 1, "recommended": true, "id": "RD-t85d1ece1111a-verify-source", "statu
+PASS c non-X URL action ID prefix RD-u<8 hex> :: [{"intent": "read", "target": "Article", "rank": 1, "recommended": true, "id": "RD-u79c3bd4d-read-article", "status": "S
+PASS d mode with no_integrations: stateful, filing/kindle/sweep off, no error :: {"assessment_only": false, "explicit_assessment_only": false, "stateful": true, "filing": false, "kindle": false, "kindle_ledger": false, "sweep": false, "notes": ["Notion filing off", "long-read routing off", "no bookmark sweep"]}
+PASS d mode with empty: assessment-only, filing/kindle/sweep off, no error :: {"assessment_only": true, "explicit_assessment_only": false, "stateful": false, "filing": false, "kindle": false, "kindle_ledger": false, "sweep": false, "notes": ["no confirmed goals: Relevance stays '?'", "setup not complete or no state_dir: assessment-only, no writes", "Notion filing off", "long-read routing off", "no bookmark sweep"]}
+PASS d full assessment still runs with no Notion/no Kindle :: {"verdict": "Try", "research_lead": false, "triage": "assessed", "score": 90, "notes": [], "unknown": []}
+PASS d positive control: opted-in config enables filing/kindle/sweep, ledger absent :: {"assessment_only": false, "explicit_assessment_only": false, "stateful": true, "filing": true, "kindle": true, "kindle_ledger": false, "sweep": true, "notes": []}
+PASS m none: setup complete, no features :: assessment_only=0 stateful=1 filing=0 kindle=0 kindle_ledger=0 sweep=0 explicit_assessment_only=0 invariant=ok
+PASS m notion-only :: assessment_only=0 stateful=1 filing=1 kindle=0 kindle_ledger=0 sweep=0 explicit_assessment_only=0 invariant=ok
+PASS m notion enabled but no field mapping :: assessment_only=0 stateful=1 filing=0 kindle=0 kindle_ledger=0 sweep=0 explicit_assessment_only=0 invariant=ok
+PASS m kindle-only (no ledger) :: assessment_only=0 stateful=1 filing=0 kindle=1 kindle_ledger=0 sweep=0 explicit_assessment_only=0 invariant=ok
+PASS m kindle-only with ledger :: assessment_only=0 stateful=1 filing=0 kindle=1 kindle_ledger=1 sweep=0 explicit_assessment_only=0 invariant=ok
+PASS m sweep-only :: assessment_only=0 stateful=1 filing=0 kindle=0 kindle_ledger=0 sweep=1 explicit_assessment_only=0 invariant=ok
+PASS m all features (positive control) :: assessment_only=0 stateful=1 filing=1 kindle=1 kindle_ledger=1 sweep=1 explicit_assessment_only=0 invariant=ok
+PASS m incomplete: setup_complete false, all features configured :: assessment_only=1 stateful=0 filing=0 kindle=0 kindle_ledger=0 sweep=0 explicit_assessment_only=0 invariant=ok
+PASS m incomplete: no state_dir, all features configured :: assessment_only=1 stateful=0 filing=0 kindle=0 kindle_ledger=0 sweep=0 explicit_assessment_only=0 invariant=ok
+PASS m incomplete: no config file :: assessment_only=1 stateful=0 filing=0 kindle=0 kindle_ledger=0 sweep=0 explicit_assessment_only=0 invariant=ok
+PASS m explicit assessment-only: all features configured :: assessment_only=1 stateful=0 filing=0 kindle=0 kindle_ledger=0 sweep=0 explicit_assessment_only=1 invariant=ok
+PASS m explicit assessment-only: no config file :: assessment_only=1 stateful=0 filing=0 kindle=0 kindle_ledger=0 sweep=0 explicit_assessment_only=1 invariant=ok
+PASS g no confirmed goals (no_goals): Needs review, score withheld, points to goal setup :: {"verdict": null, "research_lead": false, "triage": "needs_review", "score": null, "notes": ["no confirmed goals: Relevance and total withheld; run goal setup", "dimension R='?' invalid or unratable"], "unknown": []}
+PASS g no confirmed goals (empty): Needs review, score withheld, points to goal setup :: {"verdict": null, "research_lead": false, "triage": "needs_review", "score": null, "notes": ["no confirmed goals: Relevance and total withheld; run goal setup", "dimension R='?' invalid or unratable"], "unknown": []}
+PASS g decide with no config argument fails closed (R withheld) :: {"verdict": null, "research_lead": false, "triage": "needs_review", "score": null, "notes": ["no confirmed goals: Relevance and total withheld; run goal setup", "dimension R='?' invalid or unratable"], "unknown": []}
+PASS g decide with no config ignores caller goals_confirmed=true (R and total withheld) :: {"verdict": null, "research_lead": false, "triage": "needs_review", "score": null, "notes": ["no confirmed goals: Relevance and total withheld; run goal setup", "dimension R='?' invalid or unratable"], "unknown": []}
+PASS g decide with missing config file ignores caller goals_confirmed=true :: {"verdict": null, "research_lead": false, "triage": "needs_review", "score": null, "notes": ["no confirmed goals: Relevance and total withheld; run goal setup", "dimension R='?' invalid or unratable"], "unknown": []}
+PASS v decide with string premise: exit 2, no traceback :: {"error": "ValueError('premises must be a list of objects')"}
+PASS v decide with premises not a list: exit 2, no traceback :: {"error": "ValueError('premises must be a list of objects')"}
+PASS v decide with item not an object: exit 2, no traceback :: {"error": "ValueError('item must be an object')"}
+PASS v decide with dims not an object: exit 2, no traceback :: {"error": "TypeError('cannot convert dictionary update sequence element #0 to a sequence')"}
+PASS s normal: two new saves above confirmed anchors :: {"new": ["x:1000000000000000201", "x:1000000000000000202"], "skipped": [], "boundary": 2}
+PASS s single re-bookmark: old anchor a3 moved to top above a new save (detected) :: {"new": ["x:1000000000000000201"], "skipped": ["x:1000000000000000103"], "boundary": 2}
+PASS s re-bookmark of a terminal non-anchor post above a new save (detected) :: {"new": ["x:1000000000000000201"], "skipped": ["x:1000000000000000050"], "boundary": 2}
+PASS s KNOWN LIMITATION: new save N1, then a2 and a1 re-bookmarked (land in recorded order) -> N1 masked :: {"new": [], "skipped": [], "boundary": 0}
+PASS s no confirmed anchor on page: gap, triage nothing :: {"new": [], "skipped": [], "boundary": null, "gap": "no confirmed anchor on this page: triage nothing"}
+PASS l second acquire blocked (exit 3), never taken over :: {"held": {"state": "held", "owner": {"token": "<TOKEN>", "purpose": "run", "started_at": <TIME>}}}
+PASS l put with wrong token refused (exit 4)
+PASS l atomic put writes record, no tmp files left
+PASS l put re-checks owner just before replace: refused write leaves state unchanged, no tmp files
+PASS l release by owner
+PASS l unreadable state fails closed (exit 5) :: {"state_error": "state.json unreadable: Expecting value: line 1 column 13 (char 12)"}
+PASS p no YAML frontmatter in either skill
+PASS p coverage limitation disclosed (re-bookmark masking + ~800)
+PASS p invocation covers non-X URLs and pasted text
+PASS p lock recovery/approvals use 'the owner'
+PASS p no legacy PT- action IDs
+PASS p onboarding skill referenced by its new name
+PASS p assessment-only/stateful mode not tied to Notion filing
+PASS p single-writer use documented in skill and helper
+PASS p sections 8, 9, 10 gated by their own mode flag
+
+SUMMARY 63/63 passed
